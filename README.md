@@ -97,3 +97,37 @@ You can modify the training configuration in `./config/training_real.yaml`.
 
 ## 5. License
 The source code is released under [GPLv3](http://www.gnu.org/licenses/) license.
+
+
+## 问题
+
+1.遇到了
+```
+ModuleNotFoundError: No module named 'utils'
+[e2e_traj_show-1] process has died [pid 1005223, exit code 1, cmd /home/office2004/catkin_ws/ParkingE2E/src/ParkingE2E-main/catkin_ws/devel/lib/core/e2e_traj_show.py __name:=e2e_traj_show __log:=/home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/e2e_traj_show-1.log].
+log file: /home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/e2e_traj_show-1*.log
+[undistort-6] process has died [pid 1005228, exit code 1, cmd /home/office2004/catkin_ws/ParkingE2E/src/ParkingE2E-main/catkin_ws/devel/lib/undistort/undistort.py __name:=undistort __log:=/home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/undistort-6.log].
+log file: /home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/undistort-6*.log
+```
+
+**解决方法**
+在 bashrc 中添加：
+
+```
+export PYTHONPATH=$PYTHONPATH:/home/office2004/catkin_ws/ParkingE2E
+```
+
+
+
+2.遇到了
+```
+FileNotFoundError: [Errno 2] No such file or directory: '/home/office2004/fisheye_undistort/para/left/calib_results_left.txt'
+[undistort-6] process has died [pid 1012876, exit code 1, cmd /home/office2004/catkin_ws/ParkingE2E/src/ParkingE2E-main/catkin_ws/devel/lib/undistort/undistort.py __name:=undistort __log:=/home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/undistort-6.log].
+log file: /home/office2004/.ros/log/7602ffb6-c416-11ef-8d22-e313d3068226/undistort-6*.log
+```
+**解决方法**
+复制fisheye_undistort文件夹到 /home/office2004/ 目录中
+
+运行 roslaunch core driven_core.launch 后会自动下载
+
+![Screenshot from 2025-01-03 09-57-03](https://github.com/user-attachments/assets/dae8abbe-92a6-456c-b38a-24329d8d7348)
